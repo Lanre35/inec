@@ -92,7 +92,6 @@
                     $.each(data, function(index, item) {
                         // res = res.concat('<option value='+item.ward_id+'>' + item.ward_name + '</option>');
                         res = `${res} <option value="${item.ward_id}"> ${item.ward_name} </option>`;
-                        
                     });
 
                     $('#ward').html(res);
