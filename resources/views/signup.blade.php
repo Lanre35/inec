@@ -20,7 +20,7 @@
                 <span><i class="icon icon-user"></i></span>
             </div>
             <div class="form-group">
-                <input type="text" name="name" class="form-control item" id="username" placeholder="Full Name">
+                <input type="text" name="name" class="form-control item" id="full_name" placeholder="Full Name">
             </div>
 
             <div class="form-group">
