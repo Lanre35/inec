@@ -2,6 +2,7 @@
 
     <x-nav/>
     <div>
+
         <h1 class="text-center mt-4">Polling Unit Result</h1>
             <div class="m-0">
                 <span class="alert text-danger" id="span"></span>
@@ -9,11 +10,15 @@
         <form action="{{ url('search') }}" method="get">
             @csrf
             <div>
-                <input id="form" type="text" name="search" placeholder="Search Polling Unit" class="form-control-lg mb-3">
-
+                <input id="form" type="text" name="search" placeholder="Search Polling Unit" class="form-control-lg">
+                <div><span class="alert text-danger" id="error-message"></span></div>
             </div>
 
-            <button id="get-data" type="button" class="btn btn-primary btn-lg">Search</button>
+            {{-- <div>
+
+            </div> --}}
+
+            <button  id="get-data" type="button" class="btn btn-primary btn-lg mt-2">Search</button>
         </form>
      </div>
 
@@ -28,21 +33,6 @@
                 </tr>
             </thead>
             <tbody id="body">
-
-                {{-- @if(inset($pollingUnitResult))
-
-
-                @foreach ($pollingUnitResult as $pollingUnit)
-                    <tr>
-                        <td>{{ $pollingUnit->result_id }}</td>
-                        <td>{{ $pollingUnit->party_abbreviation }}</td>
-                        <td>{{ $pollingUnit->party_score }}</td>
-                    </tr>
-                @endforeach
-            @endif --}}
-
-
-
             </tbody>
         </table>
         <div class="text"></div>
@@ -55,6 +45,7 @@
 <script>
     $(function(){
         let p = $('#form')
+        let msg = $('#error-message');
 
         $('#get-data').on('click',function(e){
 
@@ -90,6 +81,7 @@
 
 
                         p.val('');
+                        $('#error-message').text('');
                     },
                     // error: function (jqXHR, textStatus, errorThrown) {
                     // //    console.log(
@@ -101,9 +93,8 @@
                 })
 
             }
-
             e.preventDefault();
-            // $('#span').text('Empty Field').css('border': 'red');
+            $('#error-message').text('Empty Field');
 
         });
     });

@@ -23,7 +23,11 @@ class PollingUnitResultController extends Controller
         //     // dd($pollingUnitResult);
         // }
 
-        $pollingUnitResult = AnnouncedPollingUnitResult::where('polling_unit_uniqueid', $request->polling_unit_uniqueid)->get();
+        $validatedData = $request->validate([
+            'polling_unit_uniqueid' => 'required|string|numeric', // Adjust the length as needed
+        ]);
+
+        $pollingUnitResult = AnnouncedPollingUnitResult::where('polling_unit_uniqueid', $validatedData['polling_unit_uniqueid'])->get();
         return response()->json($pollingUnitResult);
     }
 }
