@@ -23,7 +23,7 @@ Route::get('/polling-unit',[PollingUnitResultController::class,'index']);
 Route::get('/search', [PollingUnitResultController::class, 'show']);
 
 Route::get('/total-result-polling-unit', [TotalResultPollUnitController::class, 'index'])->name('polling-result');
-Route::get('/total', [TotalResultPollUnitController::class, 'show']);
+Route::get('/total', [TotalResultPollUnitController::class, 'show'])->name('total');
 
 
 Route::resource('create-polling-unit', CreateNewPollUnitController::class);
@@ -31,7 +31,8 @@ Route::resource('create-polling-unit', CreateNewPollUnitController::class);
 
 Route::get('dd',[CreateNewPollUnitController::class,'getWard']);
 Route::get('pol',[CreateNewPollUnitController::class,'getPollingUnit']);
+Route::get('ss',[PollingUnitResultController::class,'show']);
 
 
-
+Route::get('show', [PollingUnitResultController::class, 'show'])->name('show');
 

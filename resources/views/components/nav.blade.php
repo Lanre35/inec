@@ -1,15 +1,19 @@
 <x-layout>
-    <div class="text-center mt-4">
+    <div class="text-right position-relative mt-2 mb-2">
+        {{-- This button is for logging out --}}
+
+        <a class="btn btn-danger" href="{{ route('logout') }}">logout</a>
+    </div>
+    <div class="text-center mt-0">
 
         <a class="btn btn-primary" href="{{ route('dashboard') }}">Home</a>
         <a class="btn btn-success" href="{{ url('polling-unit') }}">Polling Unit Result</a>
         <a class="btn btn-secondary" href="{{ route('polling-result') }}">Total Results of The Polling Units</a>
         <a class="btn btn-info" href="{{ url('create-polling-unit') }}">Create Polling Unit</a>
-        <a class="btn btn-danger" href="{{ route('logout') }}">logout</a>
+
     </div>
 </x-layout>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
 {{--<script src="{{asset('assets/index.js')}}"></script>--}}
 
 <script>

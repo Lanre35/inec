@@ -9,16 +9,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-
-    {{-- <link rel="stylesheet" href="{{ asset('assets/css/icons.css') }}"> --}}
-
 </head>
 <body class="container">
 
+
     {{ $slot }}
-
-
-
 
 </body>
 </html>

@@ -30,8 +30,8 @@ class CreateNewPollUnitController extends Controller
 
     public function getWard(Request $request)
     {
+        // $subWard = DB::select("SELECT ward_name, lga_name, ward_id FROM ward JOIN lga ON ward.lga_id = lga.lga_id WHERE ward.lga_id = ?", [$request->lga_id]);
         $subWard = Ward::where('lga_id', $request->lga_id)->select('ward_name', 'lga_id','ward_id')->get();
-//        $subWard = DB::select("SELECT ward_name, lga_name, ward_id FROM ward JOIN lga ON ward.lga_id = lga.lga_id WHERE ward.lga_id = ?", [$request->lga_id]);
         return response()->json($subWard);
     }
 

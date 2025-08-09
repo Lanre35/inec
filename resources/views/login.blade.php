@@ -27,7 +27,7 @@
             </div>
 
              <div class="form-group">
-                <input type="text" name="email_or_username" class="form-control item" id="email" placeholder="Email/Username">
+                <input type="text" name="email_or_username" value="{{ old('email_or_username') }}" class="form-control item" id="email" placeholder="Email/Username">
             </div>
 
             <div class="form-group">

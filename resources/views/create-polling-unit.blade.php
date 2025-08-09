@@ -75,6 +75,9 @@
 
 </x-layout>
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
 <script>
     $(function(){
         let lga = $('#lga');
@@ -104,8 +107,6 @@
             // console.log(cont);
         });
 
-
-
     });
 
     $(function(){
@@ -118,12 +119,12 @@
                 method: 'GET',
                 // dataType: 'html',
                 success: function (data) {
-                    // console.log(data);
 
                     let res = '';
                     $.each(data, function(index, item) {
-                        // console.log("Index: " + index + ", Name: " + item.polling_unit_id);
-                        res = res.concat('<option value='+item.uniqueid+'>' + item.polling_unit_id + '</option>');
+                        // res = res.concat('<option value='+item.uniqueid+'>' + item.polling_unit_id + '</option>');
+                        res = `${res} <option value="${item.uniqueid}"> ${item.polling_unit_id} </option>`;
+
                     });
 
                     $('#pol').html(res);
@@ -135,9 +136,6 @@
             });
             // console.log(cont);
         });
-
-
-
     });
 
 </script>

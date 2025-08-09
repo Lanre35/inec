@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\Ward;
+use App\Models\PollingUnit;
 use Illuminate\Http\Request;
 use App\Models\LocalGovernmentArea;
-use App\Models\AnnouncedPollingUnitResult;
-use App\Models\PollingUnit;
-use App\Models\Ward;
-use Illuminate\Validation\Rules\Unique;
 
+use function Laravel\Prompts\error;
 use function Laravel\Prompts\select;
+
+use Illuminate\Validation\Rules\Unique;
+use App\Models\AnnouncedPollingUnitResult;
+// Removed: use Dotenv\Validator;
 
 class TotalResultPollUnitController extends Controller
 {
@@ -21,12 +25,11 @@ class TotalResultPollUnitController extends Controller
 
     public function show(Request $request)
     {
-        $d = LocalGovernmentArea::where('lga_id', $request->local_government_area)->first();
-        $p = AnnouncedPollingUnitResult::groupBy('party_abbreviation')
-                ->selectRaw('party_abbreviation, sum(party_score) as party_score')
-                ->where('lga_id', $d->lga_id)
-                ->get();
+        $lgaId = $request->local_government_area;
+        $results = DB::select("SELECT party_abbreviation,
+        SUM(party_score) as total_score FROM announced_pu_results join polling_unit
+        where lga_id=$lgaId GROUP BY party_abbreviation");
+
+        return response()->json($results);
     }
-
-
 }

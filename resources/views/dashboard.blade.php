@@ -14,6 +14,11 @@
             <h1 class="text-center">Welcome to the INEC Results Dashboard</h1>
             <p class="text-center">Use the navigation above to view results by polling unit or see the total results.</p>
         </div>
+
+        <div class="text-center mt-5">
+            {{-- Display the INEC logo --}}
+            <img src="{{ asset('assets/images/inec.jpeg') }}" alt="INEC Logo" class="img-fluid mx-auto d-block">
+        </div>
     </div>
 
     </div>
