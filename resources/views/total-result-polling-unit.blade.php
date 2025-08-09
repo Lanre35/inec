@@ -54,10 +54,10 @@
                 event.preventDefault();
             }
             else {
-                $('.no-results').hide();
-            }
 
-            $.ajax({
+                $('.no-results').hide();
+
+                 $.ajax({
                 url: form.attr('action'),
                 type: 'GET',
                 data: form.serialize(),
@@ -86,6 +86,9 @@
                 //     console.error('Error fetching results:', error);
                 // }
             });
+            }
+
+
         });
     });
 </script>
